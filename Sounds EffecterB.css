@@ -1,0 +1,237 @@
+@charset "UTF-8" ;
+
+@media (max-width: 700px),(-webkit-min-device-pixel-ratio:0){
+	header{
+
+		align-items:flex-end;
+		align-content: center;
+		padding: 0px;
+	}
+}
+
+
+@media (min-width: 960px){
+	header{
+		background-image: url(image/banner1.jpg);
+		background-blend-mode: soft-light;
+		padding: 10px;
+	}
+}
+
+
+header {
+	display: flex;
+	width: 100%;
+	height: 100px;
+	background-color: rgb(207, 207, 207);
+	align-items:center;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	
+  }
+  
+  .nav{
+	  flex-direction: row;
+	  justify-content: flex-end;
+	  flex-wrap: nowrap;
+
+  }
+   
+  .title {
+	margin-right: auto;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+   
+  .menu-item {
+	list-style: none;
+	display: inline-block;
+	padding: 8px;
+  }
+
+
+  /*******
+@media (min-width: 960px),(-webkit-min-device-pixel-ratio:1){
+	.sound{
+	background-image: url(image/backg1.jpg);
+	background-blend-mode: soft-light;
+	margin: 20px;	
+	}
+}********/
+
+body{
+	font-family: sans-serif;
+	margin: 10px;
+
+	background-color: #edededea;
+}
+
+
+.notice
+{
+	background-color: #c4e2f7d3;
+}
+
+.wrapper
+{
+	margin:0px;
+	padding: 0px;
+}
+
+
+
+.container
+{
+	flex-direction: row;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+
+
+}
+.item{
+	margin: 10px;
+	padding: 10px;
+	flex-wrap: wrap;
+	align-items: center;
+
+}
+
+
+.sounds
+{
+	display:inline-block;
+	width: 92% ;
+	max-width: 400px ;
+	margin: 15px ;
+	padding: 25px 0 ;
+	border-radius: 6px ;
+
+	color: #fff ;
+	font-weight: 700 ;
+	background: #21276c
+	;
+	text-align: center ;
+	text-decoration: none ;
+	
+}
+.stop-button
+{
+	display: block ;
+
+	width: 95% ;
+	margin: 15px ;
+	padding: 30px 0 ;
+	border-radius: 4px ;
+
+	color: #fff ;
+	font-weight: 700 ;
+	background: #21276c
+	;
+	text-align: center ;
+	text-decoration: none ;
+}
+
+.stop-button
+{
+	background: #8f7c7c ;
+}
+
+.sebutton
+{
+display:flex;
+flex-wrap:wrap;
+}
+
+
+.youtube
+{
+display:inline-flex;
+flex-wrap:wrap;
+width: 95% ;
+height: auto;
+padding-top: 56.25%;
+margin: 30px ;
+padding: 40px 0 ;
+
+}
+
+@media (max-width: 600px){
+.NandS{margin: 2px;}}
+@media (min-width:960px){
+	.NandS{margin:15px}
+}
+.NandS
+{
+display: inline-flex;
+flex-wrap: wrap;
+width: 95% ;
+height: auto;
+padding-top: 56.25%;
+padding: 40px 0 ;
+}
+
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+}
+
+@media (min-width:960px){
+	footer{
+		background-image: url(image/backg1.jpg);
+		background-blend-mode: lighten;
+		background-color: rgba(255, 255, 255, 0.349);
+	}
+}
+@media (max-width: 700px){
+	footer{
+		background-color:rgb(31, 31, 31);
+
+	}
+
+}
+
+
+footer{
+	margin: 0px;
+	padding: 30px;
+
+
+}
+
+
+/*文中の文字を囲む*/
+.kakomu{
+	padding:2px 8px; /* 枠と文字の空間 */
+	margin:0 5px; /* 枠の外の空間 */
+	background-color:#f9f9f9; /* 枠の背景色 */
+	border:1px solid #777; /* 枠の線の太さ・種類・色 */
+	border-radius:2px; /* 枠の角を丸くする */
+	box-shadow: 1px 2px 2px #ddd; /*影をいれる*/
+	font-family:inherit; /* フォントの種類を継承する */
+	font-size:0.85em;	/* フォントの大きさ */
+}
+
+
+
+/*iphoneデフォルトスタイル適用防止
+はこのコード。（メモ）
+-webkit-appearance: none;*/
