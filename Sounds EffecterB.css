@@ -146,6 +146,13 @@ flex-wrap:wrap;
 }
 
 
+.pop_new{
+	float: left;
+	max-width: 30px;
+	height: auto;
+}
+
+
 .youtube
 {
 display:inline-flex;
