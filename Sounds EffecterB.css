@@ -361,7 +361,7 @@ footer{
     left: 100%;/*leftの値を変更してメニューを画面外へ*/
     z-index: 80;
     background-color: #3584bb;
-	justify-content: space-around;
+	justify-content: flex-end;
 	align-items: flex-start;
     transition: all 0.5s;/*アニメーション設定*/
 }
