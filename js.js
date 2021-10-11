@@ -167,5 +167,5 @@ event => {
 
 setTimeout("redirect()", 0);
 function redirect(){
-    location.href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/maintenance-s";
+//    location.href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/maintenance-s";
 }
