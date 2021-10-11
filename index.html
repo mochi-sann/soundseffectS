@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- スタイルシートの読み込み -->
-		<link href="Sounds EffecterB.css" rel="stylesheet">
+		<link href="Sounds EffecterB 2.css" rel="stylesheet">
 
 		<link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
 
@@ -77,10 +77,17 @@
 		{
 		  int=parseInt(int);
 		  
-		  if (int<=0)
-		  {
+		  //if (int<=0)
+		  //{
+			//reSet();
+			//alert("時間です！");
+		  //}
+		  if (int<=0){
 			reSet();
-			alert("時間です！");
+			var Sound = new Audio();
+			Sound.src = "audio/chime.mp3";
+			Sound.currentTime = 0;
+			Sound.play();
 		  }
 		  else
 		  {
@@ -139,7 +146,7 @@
 	<a href="javascript:void(0)" onclick="set('おはよう')">おはよう</a>
 	-->
 
-		<title>横浜キャンパスSE集</title>
+		<title>SE集 β版(オリジナル版）</title>
 		<link rel="icon" href="favicons/favicon.ico">
 	</head>
 
@@ -159,15 +166,14 @@
 		<nav class="nav">
 		<div class=navlogo>	<li><img class="logo" src="image/header-logo2.png" width="80%"></li></div>
 		  <ul class="menu-group">
-			<li class="menu-item"><a href="index.html" target="_blank" rel="noopener">SE集オリジナル版</a></li>
-			<li class="menu-item"><a href="https://docs.google.com/spreadsheets/d/10Wtg40D_0NpN4VJqjC1gcge12AOKwa5FcEwwU7Gl2EY/edit?usp=sharing" target="_blank" rel="noopener">効果音のキー配列表はこちら</a></li>
-			<!--<li class="menu-item"><a href="index-yobi.html" target="_blank" rel="opener">うまくページが表示できない時はこちら</a></li>
-			<li class="menu-item"><a href="" target="_blank" rel="noopener">生徒用SE集ポータルサイト</a></li>-->
-			<li class="menu-item"><a href="" target="_blank" rel="noopener">生徒用SE集サイト
-			<li class="menu-item"><a href="更新履歴.html" target="_blank" rel="noopener">更新履歴</a></li>
+			<li class="menu-item"><a href="index.html" >SE集オリジナル版</a></li>
+			<li class="menu-item"><a href="index-yobi.html" target="_blank" rel="opener">うまくページが表示できない時はこちら</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/SE_key-layout-student" target="_blank" rel="noopener">効果音のキー配列表はこちら</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/new-infomation" target="_blank" rel="noopener">新着情報</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/history-student" target="_blank" rel="noopener">更新履歴</a></li>
 			<!--<li class="menu-item"><a href="readme.html" target="_blank" rel="noopener">マニュアル</a></li>-->
-			<!--<li class="menu-item"><a href="quote.html" target="_blank" rel="noopener">コード引用サイト</a></li>-->
-			<li class="menu-item"><a href="contactus.html" target="_blank" rel="noopener">お問い合わせ</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/quote" target="_blank" rel="noopener">コード引用サイト</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/fb_contact-us" target="_blank" rel="noopener">お問い合わせ</a></li>
 		  </ul>
 		</nav></div></div>
 	  </header>
@@ -191,7 +197,7 @@
 	</div>
 	<p>※秒が若干(0.5秒前後）ずれることがあります。その場合は、<span class="kakomu">command+shift+R　(Mac)</span>もしくは<span class="kakomu">Shift+F5　(Windows)</span>でキャッシュなしリロードを行ってください。</p>
 	<input type="button" class="reload" value="SE集をリロード" onclick="window.location.reload();" />
-	<h4>通知音が鳴らないタイマー</h4>
+	<h4>通知音が鳴る仕様に変更されたタイマー</h4>
 	<div style="padding: 30px; margin-bottom: 10px; border: 1px solid #333333;">
 		<form name="timer">
 		<input type="text" value="">分
@@ -281,6 +287,11 @@
 		<h2>SE全停止</h2>
 		<p><a href="#" id="stop-button" class="stop-button">SEを停止する</a></p>
 		</div>
+		
+		<button id="btn_play">再生</button>
+		<button id="btn_pause">一時停止</button>
+		<button id="btn_mute">消音</button>
+		<input type="range" id="volume" value="0.5" min="0.0" max="1.0" step="0.1">
 
 		<div class="BGM">
 			<h2 style="text-align:left;color:#217d8d">BGM＆Jingle</h2>
@@ -364,8 +375,7 @@
 			
 			</div>	
 			<br><br><br>
-
-			<h3>N・S高校歌</h3>
+			<h3>テーマソング</h3>	
 			<details>
 				<summary>Youtube再生について（クリックして詳細を表示）</summary>
 				一部の再生環境では前回再生した時の環境のまま再生されることがあります。音量やミュート等に影響します。リロードでは直らなかったので手動で直していただけると助かります。
@@ -376,6 +386,14 @@
 				5秒送り→左右矢印キー（←・→）<br>
 				10秒送り→Jキー（戻る）Lキー（進む）<br>
 			</details>
+
+				<div class="youtube">
+					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fxUS4z4ftSs?playsinline=1"allow="accelerometer"></iframe>
+				<br>
+				<br>
+					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NfQ-GsSyNhc?playsinline=1" allow="accelerometer"></iframe>
+				</div>
+			<h3>N・S高校歌</h3>
 				<div class="NandS">
 					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xhOsnY-k8JM?playsinline=1" allow="accelerometer" allowfullscreen></iframe>
 					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Zbtfj1pVamg?playsinline=1" allow="accelerometer" allowfullscreen></iframe>	
@@ -387,7 +405,7 @@
 <HR style="margin: 0em 0 ;">
 	<footer style="text-align:left;color:#ffffff">
 		<p><h3>©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>
-		SE・BGM・Jingle項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画は除く）<br>
+		SE・BGM項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画と*印のあるSEを除く）<br>
 		また、htmlのコードは多数のウェブサイト（「引用」に記載）よりお借りしていますが、デザイン等は全て改変しています。このサイト及びサイト内のコンテンツ（音声・画像ファイルなど）を一部改変、もしくはそのまま複製・再配布することを固く禁じます。
 	</p>
 	<p>更新履歴は<span style="color:skyblue;"><a href="更新履歴.html">こちら</a></span>からご覧になれます。</p>
@@ -395,7 +413,7 @@
 	</footer>
 
 <!-- JavaScriptの読み込み -->
-<script src="Sounds EffectB.js"></script>
+<script src="Sounds EffectB 2.js"></script>
 <script src="js.js"></script>
 
 
